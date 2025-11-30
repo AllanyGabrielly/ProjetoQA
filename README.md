@@ -2,11 +2,6 @@
 
 Este projeto contém testes automatizados para o BugBank (aplicação web) e Bookstore API, utilizando Playwright.
 
-# 📋 Pré-requisitos
-
-· Node.js versão 18 ou superior
-· npm (geralmente vem com o Node.js)
-
 # 🚀 Instalação e Execução
 
 1. Instalar dependências
