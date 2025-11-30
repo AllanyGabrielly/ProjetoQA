@@ -1,38 +1,34 @@
-# Projeto Final – Qualidade de Software (2025.2)
-## Faculdade Alpha do Recife
+# Projeto Final – Qualidade de Software (2025.2)  
+Faculdade Alpha do Recife
 
-**Autores:** Jefferson lins, Allany Gabrielly, Maria Cláudia
+**Autores:** Jefferson lins, Allany Gbrielly, Maria Claudia.
 **Turma:** 2025.2
-**Disciplina:** Qualidade de Software
+**Disciplina:** Qualidade de Software  
 **Professor(a):** Tarciana Katter
 
-### Finalidade do projeto
-Este repositório contém os dois projetos práticos finais entregues para a disciplina de Qualidade de Software:
+### Objetivo do projeto
 
-1. **Testes de API REST** – Bookstore API[](https://bookstore.demoqa.com)
-   Cobertura dos 4 cenários obrigatórios: Listar livros → Adicionar livro → Verificar coleção → Remover livro.
-
-2. **Testes End-to-End (E2E)** – BugBank[](https://bugbank.netlify.app)
-   Cobertura dos 3 cenários obrigatórios do desafio oficial: Cadastro com saldo → Login e validação de saldo → Transferência para conta inexistente.
-
-Ambos os conjuntos de testes foram desenvolvidos com **Playwright Test** (versão mais recente em 2025) seguindo rigorosamente os critérios de avaliação da disciplina;
+1. Testes de API REST – Bookstore (DemoQA) – 4 cenários obrigatórios  
+2. Testes End-to-End – BugBank – 3 cenários oficiais do desafio
 
 ### Tecnologias utilizadas
 - Node.js ≥ 18
-- Playwright Test (versão mais recente)
-- JavaScript (sem TypeScript para manter compatibilidade com a estrutura da disciplina)
+- Playwright Test (última versão estável de 2025)
+- JavaScript puro (sem TypeScript)
 
 ### Estrutura do repositório
 
-├── api-bookstore/
+projeto-final-qualidade-software/
+├── bookstore-api/
 │   └── tests/
-│       └── bookstore.spec.js          ← Testes de API (4 cenários)
-├── e2e-bugbank/
+│       └── bookstore.spec.js          ← 4 cenários de API (100% independentes)
+├── bugbank-e2e/
 │   └── tests/
-│       └── bugbank.spec.js            ← Testes E2E (3 cenários)
-├── playwright.config.js               ← Configuração global (compartilhada)
+│       └── bugbank.spec.js            ← 3 cenários E2E (100% DRY e independentes)
+├── playwright.config.js
 ├── package.json
-└── README.md
+├── package-lock.json
+└── README.md                              ← este arquivo
 
 ### Como instalar e executar (passo a passo completo)
 
@@ -41,30 +37,23 @@ Ambos os conjuntos de testes foram desenvolvidos com **Playwright Test** (versã
 git clone https://github.com/seu-usuario/projeto-final-qualidade-software.git
 cd projeto-final-qualidade-software
 
-2. Instale as dependências
+Instale as dependências
 
 Bashnpm install
 
-3. Instale os navegadores do Playwright (executar apenas uma vez)
+Instale os navegadores do Playwright (executar apenas uma vez)
 
 Bashnpx playwright install
 
-4. Execute os testes
+Execute os testes
 
-5. Todos os testes de uma vez
+Todos os testes de uma vez
 Bashnpx playwright test
-
-6. Apenas testes de API
+Apenas testes de API
 Bashnpx playwright test bookstore-api
-
-7. Apenas testes do BugBank
-
+Apenas testes do BugBank
 Bashnpx playwright test bugbank-e2e
-
-8. Modo headed (ver o navegador aberto)
-
+Modo headed (ver o navegador aberto)
 Bashnpx playwright test --headed
-
-9. Gerar e abrir relatório HTML bonito
-
+Gerar e abrir relatório HTML bonito
 Bashnpx playwright test && npx playwright show-report
