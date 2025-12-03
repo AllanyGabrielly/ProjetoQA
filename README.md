@@ -110,4 +110,5 @@ Este projeto foi desenvolvido por:
 
 - **Jefferson Lins**
 - **Allany Gabrielly**
+- **Maria Cláudia Florêncio**
 
