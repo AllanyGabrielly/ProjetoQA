@@ -1,73 +1,106 @@
-# Playwright BugBank & Bookstore Tests
+# Projeto de Automação de Testes - Playwright
 
-Este projeto contém testes automatizados para o BugBank (aplicação web) e Bookstore API, utilizando Playwright.
+# 📋 Visão Geral
 
-# 🚀 Instalação e Execução
+Este projeto contém uma suíte de testes automatizados desenvolvida com Playwright para validar dois sistemas críticos:
 
-1. Instalar dependências
+1. BookStore API - Sistema de gerenciamento de livraria digital
+2. BugBank Digital - Internet banking com interface web
 
+# ⚙️ Como Rodar
+
+1. Clone o repositório
+
+```bash
+git clone <https://github.com/AllanyGabrielly/ProjetoQA.git>
+cd <ProjetoQA>
+```
+
+2. Instale as dependências
+
+```bash
 npm install
+```
 
+3. Instale os browsers do Playwright
 
-2. Instalar os browsers do Playwright
-
+```bash
 npx playwright install
+```
 
+# 📚 BookStore API
 
-3. Executar os testes
+Base URL
 
-Testes E2E do BugBank:
+```
+https://bookstore.toolsqa.com
+```
 
-npx playwright test chromium
+Cenários Implementados
 
+1. Listar livros disponíveis - Valida retorno 200 e lista não vazia
+2. Adicionar livro ao usuário - Fluxo completo: criar usuário → gerar token → adicionar livro
+3. Verificar livros do usuário - Valida que livros foram corretamente associados
+4. Remover livro do usuário - Remove livro e valida exclusão
 
-Testes de API da Bookstore:
+Funções Auxiliares
 
-npx playwright test api
+· criarUsuarioEToken() - Cria usuário e gera token de autenticação
+· pegarPrimeiroISBN() - Obtém primeiro ISBN disponível na livraria
+· limparColecaoDoUsuario() - Remove todos os livros da coleção do usuário
 
+# 🏦 BugBank Digital
 
-Executar todos os testes:
+URL da Aplicação
 
+```
+https://bugbank.netlify.app/
+```
+
+Cenários Implementados
+
+1. Cadastro com sucesso e com saldo - Cria conta com saldo inicial de R$ 1.000,00
+2. Login e validação de saldo inicial - Valida login e saldo correto
+3. Tentativa de transferência para conta inexistente - Teste de fluxo de erro
+
+Funções Auxiliares
+
+· cadastrarComSaldo() - Cadastra novo usuário com conta saldo
+· fazerLogin() - Realiza login na aplicação
+· gerarEmailUnico() - Gera email único para evitar duplicidade
+
+# ▶️ Executando os Testes
+
+Executar todos os testes
+
+```bash
 npx playwright test
+```
 
-Executar em modo headed (com navegador visível):
+Executar testes específicos
 
+```bash
+# Apenas testes da API BookStore
+npx playwright test tests/api/
+
+# Apenas testes E2E do BugBank
+npx playwright test tests/e2e/
+```
+
+Executar com interface gráfica
+
+```bash
+npx playwright test --ui
+```
+
+Executar em modo headed (com navegador visível)
+
+```bash
 npx playwright test --headed
+```
 
+Executar testes específicos por tag
 
-# 🧪 Testes Implementados
-
-BugBank (https://bugbank.netlify.app)
-
-· ✅ Cadastro com sucesso e com saldo
-· ✅ Login e validação de saldo inicial
-· ✅ Tentativa de transferência para conta inexistente
-
-Bookstore API (https://bookstore.toolsqa.com)
-
-· ✅ Listar livros disponíveis
-· ✅ Adicionar livro ao usuário
-· ✅ Verificar livros do usuário
-· ✅ Remover livro do usuário
-
-# ⚙️ Configuração
-
-O projeto está configurado para:
-
-· Timeout de 40 segundos para testes
-· Modo headed para visualização dos testes
-· Slow motion (400ms) para acompanhar os passos
-· Gravação de vídeo e screenshots em falhas
-· Relatórios HTML e list
-
-# 🛠 Dependências
-
-· @playwright/test: Framework de testes
-· uuid: Geração de IDs únicos
-· @types/node: Tipos TypeScript para Node.js
-
-# 📝 Notas
-
-· Os testes do BugBank são executados em Chromium com navegador visível
-· Os testes criam usuários com emails únicos automaticamente
-· As credenciais padrão utilizadas são: senha 123456
+```bash
+npx playwright test --grep "Cadastro"
+```
