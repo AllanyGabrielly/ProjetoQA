@@ -104,3 +104,10 @@ Executar testes específicos por tag
 ```bash
 npx playwright test --grep "Cadastro"
 ```
+# Aplicação de Testes
+
+Este projeto foi desenvolvido por:
+
+- **Jefferson Lins**
+- **Allany Gabrielly**
+
